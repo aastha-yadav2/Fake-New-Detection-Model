@@ -55,7 +55,13 @@ We used **Logistic Regression**, which is:
 - Matplotlib / Seaborn (optional for visualization)
 
 ---
+## 📄 Case Study Document
 
+I have also created a **Word document** as a case study on the Fake News Detection Model.  
+It includes detailed explanations of the dataset, preprocessing steps, model used, and evaluation results.
+
+📘 You can find and read the document in this repository.
+---
 ## 🚀 How to Use
 
 1. **Open the Colab Notebook:**
