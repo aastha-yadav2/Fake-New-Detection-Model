@@ -11,7 +11,7 @@ This project is a machine learning-based system that detects fake news using Nat
 
 The dataset is sourced from Kaggle:
 
-🔗 [Fake and Real News Dataset – Kaggle](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news)
+🔗 [Fake and Real News Dataset – Kaggle](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
 
 It contains the following columns:
 - `id`: Unique ID for the news article
