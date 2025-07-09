@@ -4,6 +4,7 @@ This project is a machine learning-based system that detects fake news using Nat
 
 > 📍 **Google Colab Notebook:**  
 > [Fake News Detection - Colab](https://colab.research.google.com/drive/1YJUUtC0WRhW0XMQaAiLgh9zC1SBhUFgb?usp=sharing)
+🚀 **Live Demo:** [Click here to try the Fake News Detection App](https://fake-new-detection-model-fwvqcskvmpnswpsmoxqzxz.streamlit.app/)
 
 ---
 
