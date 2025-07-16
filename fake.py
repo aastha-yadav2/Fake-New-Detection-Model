@@ -5,45 +5,54 @@ import joblib
 vectorizer = joblib.load('vectorizer.jb')
 model = joblib.load('model.jb')
 
-# Inject CSS for background and layout styling
+# Inject CSS
 st.markdown("""
     <style>
+    /* Background GIF */
     .stApp {
-        background: url("https://cdn.dribbble.com/users/2170220/screenshots/5978177/news_reading.gif"); /* Replace with hosted GIF URL */
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center bottom;
+        background: url("https://cdn.dribbble.com/users/177029/screenshots/3321306/news.gif");
+        background-size: cover;
         background-attachment: fixed;
+        background-position: center bottom;
+        background-repeat: no-repeat;
     }
-    .main-container {
-        padding-top: 30px;
-        padding-bottom: 300px; /* Allow visibility of GIF */
-        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+
+    /* Make content fixed at top center */
+    .fixed-content {
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 30px;
         border-radius: 15px;
-        margin: 50px auto;
+        max-width: 800px;
         width: 90%;
-        max-width: 700px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+
     .main-title {
-        font-size: 42px;
-        font-weight: 700;
+        font-size: 40px;
+        font-weight: bold;
         text-align: center;
-        color: #333;
-        margin-bottom: 10px;
+        color: #222;
     }
+
     .desc {
         text-align: center;
-        color: #555;
-        margin-bottom: 30px;
+        color: #444;
+        margin-bottom: 20px;
         font-size: 18px;
     }
+
     .stTextInput > div > input {
         border: 2px solid #bbb;
         border-radius: 10px;
         padding: 10px;
         font-size: 16px;
     }
+
     .stButton>button {
         background-color: #008CBA;
         color: white;
@@ -53,16 +62,16 @@ st.markdown("""
         font-size: 16px;
         transition: 0.3s;
     }
+
     .stButton>button:hover {
         background-color: #005f75;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Start main container
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
+# Fixed content wrapper
+st.markdown('<div class="fixed-content">', unsafe_allow_html=True)
 
-# Title and description
 st.markdown('<div class="main-title">📰 Fake News Detector</div>', unsafe_allow_html=True)
 st.markdown('<div class="desc">Enter a news article to check if it is <strong>Fake</strong> or <strong>Real</strong>.</div>', unsafe_allow_html=True)
 
@@ -82,5 +91,5 @@ if st.button("🔍 Predict"):
     else:
         st.warning("⚠️ Please enter a news article.")
 
-# Close main container
+# Close fixed content wrapper
 st.markdown('</div>', unsafe_allow_html=True)
