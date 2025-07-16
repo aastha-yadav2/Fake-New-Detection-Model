@@ -5,25 +5,41 @@ import joblib
 vectorizer = joblib.load('vectorizer.jb')
 model = joblib.load('model.jb')
 
-# Inject custom CSS
+# Inject CSS for background and layout styling
 st.markdown("""
     <style>
-    body {
-        background-color: #f5f5f5;
+    .stApp {
+        background: url("https://cdn.dribbble.com/users/2170220/screenshots/5978177/news_reading.gif"); /* Replace with hosted GIF URL */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    .main-container {
+        padding-top: 30px;
+        padding-bottom: 300px; /* Allow visibility of GIF */
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        border-radius: 15px;
+        margin: 50px auto;
+        width: 90%;
+        max-width: 700px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .main-title {
         font-size: 42px;
         font-weight: 700;
         text-align: center;
-        color: #4a4a4a;
+        color: #333;
+        margin-bottom: 10px;
     }
     .desc {
         text-align: center;
-        color: #6e6e6e;
+        color: #555;
         margin-bottom: 30px;
+        font-size: 18px;
     }
     .stTextInput > div > input {
-        border: 2px solid #ddd;
+        border: 2px solid #bbb;
         border-radius: 10px;
         padding: 10px;
         font-size: 16px;
@@ -43,7 +59,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Streamlit UI
+# Start main container
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
+
+# Title and description
 st.markdown('<div class="main-title">📰 Fake News Detector</div>', unsafe_allow_html=True)
 st.markdown('<div class="desc">Enter a news article to check if it is <strong>Fake</strong> or <strong>Real</strong>.</div>', unsafe_allow_html=True)
 
@@ -62,3 +81,6 @@ if st.button("🔍 Predict"):
             st.success("✅ This News Article is **REAL**.")
     else:
         st.warning("⚠️ Please enter a news article.")
+
+# Close main container
+st.markdown('</div>', unsafe_allow_html=True)
