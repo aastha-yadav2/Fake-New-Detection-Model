@@ -11,15 +11,15 @@ st.markdown("""
     /* Background GIF */
     .stApp {
         background: url("https://cdn.dribbble.com/users/2170220/screenshots/5978177/news_reading.gif");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center bottom;
-        background-color: #ff6f5e; /* fallback color */
+        background-color: #ff6f5e;
     }
 
-    /* Fixed white content card */
-    .fixed-content {
+    /* Fixed white card for title and subtitle */
+    .header-card {
         position: fixed;
         top: 60px;
         left: 50%;
@@ -31,21 +31,20 @@ st.markdown("""
         width: 90%;
         z-index: 100;
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        text-align: center;
     }
 
     .main-title {
         font-size: 36px;
         font-weight: bold;
-        text-align: center;
         color: #222;
         margin-bottom: 10px;
     }
 
     .desc {
-        text-align: center;
         color: #444;
         font-size: 18px;
-        margin-bottom: 30px;
+        margin-bottom: 0;
     }
 
     .stTextInput > div > input {
@@ -73,12 +72,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Content Block (fixed at top center)
-st.markdown('<div class="fixed-content">', unsafe_allow_html=True)
-
-# Title and description
+# Show title + subtitle in fixed card
+st.markdown('<div class="header-card">', unsafe_allow_html=True)
 st.markdown('<div class="main-title">📰 Fake News Detector</div>', unsafe_allow_html=True)
 st.markdown('<div class="desc">Enter a news article to check if it is <strong>Fake</strong> or <strong>Real</strong>.</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Regular (scrollable) content below
+st.write("")  # Spacer
 
 # Input field
 news_input = st.text_input("News Article")
@@ -94,6 +95,3 @@ if st.button("Predict"):
             st.success("✅ This News Article is **REAL**.")
     else:
         st.warning("⚠️ Please enter a news article.")
-
-# Close content block
-st.markdown('</div>', unsafe_allow_html=True)
