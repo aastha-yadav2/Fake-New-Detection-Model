@@ -21,9 +21,22 @@ st.markdown(f"""
     background: url("data:image/png;base64,{bg_image}") no-repeat center center fixed;
     background-size: cover;
 }}
+
+.fixed-content {{
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    z-index: 100;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}}
 </style>
 """, unsafe_allow_html=True)
-
 .fixed-content {{
     position: fixed;
     top: 60px;
