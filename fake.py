@@ -18,11 +18,11 @@ model = joblib.load('model.jb')
 st.markdown(f"""
 <style>
 .stApp {{
-    background-image: url("data:image/png;base64,{bg_image}");
+    background: url("data:image/png;base64,{bg_image}") no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }}
+</style>
+""", unsafe_allow_html=True)
 
 .fixed-content {{
     position: fixed;
