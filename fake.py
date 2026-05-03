@@ -8,35 +8,21 @@ def get_base64(file):
         return base64.b64encode(f.read()).decode()
 
 # 🔹 Load background image
-bg_image = get_base64("bg.png")   # make sure file exists
+bg_image = get_base64("bg.png")
 
 # 🔹 Load model
 vectorizer = joblib.load('vectorizer.jb')
 model = joblib.load('model.jb')
 
-# 🔹 CSS
+# 🔹 CSS (ALL INSIDE ONE BLOCK)
 st.markdown(f"""
 <style>
+
 .stApp {{
     background: url("data:image/png;base64,{bg_image}") no-repeat center center fixed;
     background-size: cover;
 }}
 
-.fixed-content {{
-    position: fixed;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 20px;
-    max-width: 600px;
-    width: 90%;
-    z-index: 100;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}}
-</style>
-""", unsafe_allow_html=True)
 .fixed-content {{
     position: fixed;
     top: 60px;
@@ -61,6 +47,7 @@ st.markdown(f"""
     text-align: center;
     margin-bottom: 20px;
 }}
+
 </style>
 """, unsafe_allow_html=True)
 
